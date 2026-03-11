@@ -1,0 +1,91 @@
+├── beribakes/
+│   ├── .env
+│   ├── about.php
+│   ├── adm.html
+│   ├── checkout.php
+│   ├── contact.php
+│   ├── home.html
+│   ├── index.php
+│   ├── make_hash.php
+│   ├── order_success.php
+│   ├── process_order.php
+│   ├── setup_beribakes.py
+│   ├── structure.py
+│   ├── .dist/
+│   ├── admin/
+│   │   ├── dashboard.php
+│   │   ├── index.php
+│   │   ├── login.php
+│   │   ├── login_process.php
+│   │   ├── logout.php
+│   │   ├── customers/
+│   │   │   ├── export_customers.php
+│   │   │   ├── get_customer.php
+│   │   │   ├── index.php
+│   │   ├── includes/
+│   │   │   ├── auth.php
+│   │   │   ├── config.php
+│   │   │   ├── footer.php
+│   │   │   ├── header.php
+│   │   │   ├── sidebar.php
+│   │   │   ├── styles.php
+│   │   ├── ledger/
+│   │   │   ├── accounts.php
+│   │   │   ├── transactions.php
+│   │   ├── orders/
+│   │   │   ├── add.php
+│   │   │   ├── index.php
+│   │   │   ├── invoice.php
+│   │   │   ├── view.php
+│   │   ├── products/
+│   │   │   ├── add.php
+│   │   │   ├── edit.php
+│   │   │   ├── index.php
+│   │   ├── reports/
+│   │   │   ├── products.php
+│   │   │   ├── sales.php
+│   ├── auth/
+│   │   ├── login.php
+│   │   ├── login_process.php
+│   │   ├── logout.php
+│   │   ├── register.php
+│   │   ├── social_login.php
+│   ├── cart/
+│   │   ├── add_to_cart.php
+│   │   ├── remove_item.php
+│   │   ├── update_cart.php
+│   │   ├── view_cart.php
+│   ├── config/
+│   │   ├── config.php
+│   │   ├── db.php
+│   ├── database/
+│   │   ├── beribakes.sql
+│   ├── includes/
+│   │   ├── footer.php
+│   │   ├── header.php
+│   ├── products/
+│   │   ├── shop.php
+│   ├── tools/
+│   │   ├── rename_products.py
+│   ├── uploads/
+│   │   ├── products/
+│   │   │   ├── 69affa122dc71_1773140498.jpg
+│   │   │   ├── 69affadbea11b_1773140699.jpg
+│   │   │   ├── 69affaf257bb7_1773140722.jpg
+│   │   │   ├── 69affb2f5e90f_1773140783.jpg
+│   │   │   ├── american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg
+│   │   │   ├── banana-bread.jpg
+│   │   │   ├── chocolate-cake.jpg
+│   │   │   ├── croissant.jpg
+│   │   │   ├── cupcake.jpg
+│   │   │   ├── deva-williamson-ntfGWVbBiO0-unsplash.jpg
+│   │   │   ├── deva-williamson-S2jw81lfrG0-unsplash.jpg
+│   │   │   ├── donut.jpg
+│   │   │   ├── elena-koycheva-PFzy4N0_R3M-unsplash.jpg
+│   │   │   ├── jacob-thomas-6jHpcBPw7i8-unsplash.jpg
+│   │   │   ├── katie-rosario-QNyRp21hb5I-unsplash.jpg
+│   │   │   ├── luisana-zerpa-MJPr6nOdppw-unsplash.jpg
+│   │   │   ├── mae-mu-kID9sxbJ3BQ-unsplash.jpg
+│   │   │   ├── meritt-thomas-Ao09kk2ovB0-unsplash.jpg
+│   │   │   ├── muffin.jpg
+│   │   │   ├── strawberry-cake.jpg

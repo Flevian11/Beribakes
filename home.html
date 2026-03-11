@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakery e‑commerce · ambient & responsive</title>
+  <!-- Tailwind via CDN + custom ambient layer -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 (free icons) for perfect iconization -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* soft ambient background & smooth transitions */
+    body {
+      background: linear-gradient(145deg, #fff7ef 0%, #fef2e6 100%);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    /* custom glassmorphism card effect & animations */
+    .ambient-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      box-shadow: 0 20px 40px -10px rgba(251, 146, 60, 0.15), 0 8px 20px -8px rgba(253, 186, 116, 0.3);
+      transition: all 0.3s ease;
+    }
+    .ambient-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      background: rgba(255, 255, 255, 0.85);
+      border-color: #fcd5b5;
+      box-shadow: 0 30px 50px -18px #f8b281;
+    }
+    /* floating animation for hero & icons */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .animate-float {
+      animation: float 5s ease-in-out infinite;
+    }
+    /* slow pulse for ambient accent */
+    @keyframes softGlow {
+      0% { text-shadow: 0 0 10px #fbc9a6, 0 0 20px #ffe7d4; }
+      50% { text-shadow: 0 0 15px #fdba74, 0 0 30px #fed7aa; }
+      100% { text-shadow: 0 0 10px #fbc9a6, 0 0 20px #ffe7d4; }
+    }
+    .ambient-glow {
+      animation: softGlow 4s infinite;
+    }
+    /* icon subtle hover effect */
+    .icon-hover {
+      transition: all 0.2s ease;
+    }
+    .icon-hover:hover {
+      transform: scale(1.2) rotate(2deg);
+      color: #b45309;
+    }
+    /* responsive grid improvements */
+    @media (max-width: 640px) {
+      .product-grid {
+        gap: 1rem;
+      }
+    }
+    /* footer ambient border */
+    .footer-gradient {
+      background: linear-gradient(90deg, #fceedd, #fae0c6, #fceedd);
+    }
+  </style>
+</head>
+<body class="antialiased text-stone-800">
+
+  <!-- main container with max-width and padding (fully responsive) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-8">
+
+    <!-- ===== header / navigation ===== ambient + icons -->
+    <header class="flex flex-wrap items-center justify-between gap-4 py-4 md:py-6">
+      <!-- logo + bakery name with floating icon -->
+      <div class="flex items-center gap-3 group">
+        <i class="fa-solid fa-cake-candles text-4xl text-amber-600 animate-float icon-hover"></i>
+        <span class="text-3xl font-light tracking-wide text-stone-700">brioche</span>
+        <span class="text-sm self-end mb-1 hidden sm:inline-block font-serif text-amber-500">· artisan bakery</span>
+      </div>
+
+      <!-- navigation links (responsive: hidden on xs, flex on sm+) -->
+      <nav class="hidden sm:flex items-center gap-6 text-stone-600 font-medium">
+        <a href="#" class="hover:text-amber-700 transition flex items-center gap-1"><i class="fa-solid fa-house"></i> home</a>
+        <a href="#" class="hover:text-amber-700 transition flex items-center gap-1"><i class="fa-solid fa-bread-slice"></i> shop</a>
+        <a href="#" class="hover:text-amber-700 transition flex items-center gap-1"><i class="fa-solid fa-egg"></i> our story</a>
+        <a href="#" class="hover:text-amber-700 transition flex items-center gap-1"><i class="fa-solid fa-phone"></i> contact</a>
+      </nav>
+
+      <!-- right icons: search, account, cart (with ambient badge) -->
+      <div class="flex items-center gap-4 text-xl text-stone-600">
+        <i class="fa-solid fa-magnifying-glass icon-hover cursor-pointer"></i>
+        <i class="fa-regular fa-user icon-hover cursor-pointer"></i>
+        <div class="relative">
+          <i class="fa-solid fa-bag-shopping icon-hover cursor-pointer text-2xl"></i>
+          <span class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold shadow-sm">3</span>
+        </div>
+        <!-- mobile menu icon (visible only on small) -->
+        <i class="fa-solid fa-bars sm:hidden text-2xl ml-2 icon-hover"></i>
+      </div>
+    </header>
+
+    <!-- ===== hero section with ambient pastels, floating animation & icons ===== -->
+    <section class="relative mt-6 md:mt-10 rounded-3xl overflow-hidden ambient-card p-6 md:p-10 flex flex-col md:flex-row items-center gap-8">
+      <!-- left text -->
+      <div class="flex-1 text-center md:text-left">
+        <span class="text-amber-500 font-semibold tracking-wider text-sm md:text-base flex items-center justify-center md:justify-start gap-2"><i class="fa-regular fa-star"></i> baked fresh daily</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-light mt-3 leading-tight">
+          sweet <span class="text-amber-600 ambient-glow">ambience</span><br>in every bite
+        </h1>
+        <p class="text-stone-600 max-w-lg mt-4 text-base md:text-lg mx-auto md:mx-0"><i class="fa-regular fa-clock mr-2 text-amber-500"></i> organic flours · natural starters · dawn baking</p>
+        <!-- cta buttons with icons -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-8">
+          <button class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full shadow-lg transition flex items-center gap-3 text-base font-medium"><i class="fa-solid fa-bag-shopping"></i> order online</button>
+          <button class="bg-white/70 backdrop-blur-sm border border-amber-200 hover:border-amber-400 text-stone-700 px-8 py-3 rounded-full shadow transition flex items-center gap-3"><i class="fa-regular fa-calendar"></i> catering</button>
+        </div>
+        <!-- tiny features -->
+        <div class="flex flex-wrap gap-4 mt-8 text-sm text-stone-500 justify-center md:justify-start">
+          <span><i class="fa-regular fa-snowflake mr-1 text-amber-400"></i> cool delivery</span>
+          <span><i class="fa-regular fa-leaf mr-1 text-amber-400"></i> organic options</span>
+          <span><i class="fa-regular fa-heart mr-1 text-amber-400"></i> 100+ reviews</span>
+        </div>
+      </div>
+      <!-- right image area (iconic floating bakery illustration) -->
+      <div class="flex-1 flex justify-center items-center animate-float">
+        <div class="relative">
+          <!-- decorative ambient circles -->
+          <div class="absolute inset-0 bg-amber-200/30 rounded-full blur-3xl -z-5"></div>
+          <i class="fa-solid fa-croissant text-[12rem] md:text-[14rem] text-amber-700/20 absolute -top-10 -left-10 -z-5 rotate-12"></i>
+          <!-- main "hero graphic" with stacked icons (visual interest) -->
+          <div class="grid grid-cols-3 gap-3 p-4 z-10 relative">
+            <div class="bg-white/70 p-4 rounded-2xl shadow-md backdrop-blur-sm"><i class="fa-solid fa-bread-slice text-5xl text-amber-600"></i></div>
+            <div class="bg-white/70 p-4 rounded-2xl shadow-md backdrop-blur-sm translate-y-3"><i class="fa-solid fa-cake-candles text-5xl text-amber-600"></i></div>
+            <div class="bg-white/70 p-4 rounded-2xl shadow-md backdrop-blur-sm"><i class="fa-solid fa-mug-saucer text-5xl text-amber-600"></i></div>
+            <div class="bg-white/70 p-4 rounded-2xl shadow-md backdrop-blur-sm -translate-x-2"><i class="fa-solid fa-cookie-bite text-5xl text-amber-700"></i></div>
+            <div class="bg-white/70 p-4 rounded-2xl shadow-md backdrop-blur-sm col-span-2 flex justify-around"><i class="fa-solid fa-wheat-awn text-4xl text-amber-500"></i><i class="fa-solid fa-egg text-4xl text-amber-500"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== curated selection / categories (iconized, with ambient cards) ===== -->
+    <section class="mt-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl md:text-3xl font-serif flex items-center gap-3"><i class="fa-regular fa-star text-amber-500"></i> our signature collection</h2>
+        <a href="#" class="text-amber-600 hover:text-amber-800 flex items-center gap-1 text-sm md:text-base">view all <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <!-- category cards grid (fully responsive) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <!-- card 1 -->
+        <div class="ambient-card p-5 rounded-2xl flex flex-col items-center text-center group transition">
+          <i class="fa-solid fa-baguette text-5xl text-amber-600 group-hover:scale-110 transition duration-300"></i>
+          <span class="font-medium mt-3">artisan breads</span>
+          <span class="text-xs text-stone-500">sourdough, rye, ciabatta</span>
+        </div>
+        <!-- card 2 -->
+        <div class="ambient-card p-5 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fa-solid fa-cake-candles text-5xl text-amber-600 group-hover:scale-110 transition"></i>
+          <span class="font-medium mt-3">celebration cakes</span>
+          <span class="text-xs text-stone-500">birthday, wedding, custom</span>
+        </div>
+        <!-- card 3 -->
+        <div class="ambient-card p-5 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fa-solid fa-cookie text-5xl text-amber-600 group-hover:scale-110 transition"></i>
+          <span class="font-medium mt-3">cookies & biscuits</span>
+          <span class="text-xs text-stone-500">chocolate chip, oatmeal</span>
+        </div>
+        <!-- card 4 -->
+        <div class="ambient-card p-5 rounded-2xl flex flex-col items-center text-center group">
+          <i class="fa-solid fa-mug-hot text-5xl text-amber-600 group-hover:scale-110 transition"></i>
+          <span class="font-medium mt-3">morning pastries</span>
+          <span class="text-xs text-stone-500">croissants, danishes, brioche</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== featured products (e‑commerce grid) ===== with icons, prices, add to cart -->
+    <section class="mt-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl md:text-3xl font-serif flex items-center gap-3"><i class="fa-regular fa-gem text-amber-500"></i> fresh this morning</h2>
+        <a href="#" class="text-amber-600 hover:text-amber-800 flex items-center gap-1">shop all <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- product grid: 1,2,3 col responsive -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <!-- product 1 -->
+        <div class="ambient-card p-5 rounded-3xl flex flex-col">
+          <div class="relative flex justify-center items-center bg-[#fcf2e7] rounded-2xl py-6">
+            <i class="fa-solid fa-bread-slice text-7xl text-amber-700/80"></i>
+            <span class="absolute top-3 right-3 bg-white/80 text-amber-600 text-xs px-2 py-1 rounded-full flex items-center gap-1"><i class="fa-regular fa-clock"></i> 2h ago</span>
+          </div>
+          <div class="mt-4 flex-1">
+            <div class="flex items-center gap-2 text-amber-500 text-sm"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> (24)</div>
+            <h3 class="font-serif text-xl">rustic sourdough</h3>
+            <p class="text-stone-500 text-sm mt-1">700g · naturally leavened</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-2xl font-light">$6.5 <span class="text-sm text-stone-400 line-through">$8.0</span></span>
+              <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 shadow"><i class="fa-solid fa-cart-plus"></i> add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- product 2 -->
+        <div class="ambient-card p-5 rounded-3xl flex flex-col">
+          <div class="relative flex justify-center items-center bg-[#fce9db] rounded-2xl py-6">
+            <i class="fa-solid fa-croissant text-7xl text-amber-600/80"></i>
+            <span class="absolute top-3 right-3 bg-white/80 text-amber-600 text-xs px-2 py-1 rounded-full flex items-center gap-1"><i class="fa-regular fa-fire"></i> bestseller</span>
+          </div>
+          <div class="mt-4 flex-1">
+            <div class="flex items-center gap-2 text-amber-500 text-sm"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+            <h3 class="font-serif text-xl">butter croissant</h3>
+            <p class="text-stone-500 text-sm mt-1">法国 pastry · 100% butter</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-2xl font-light">$3.9</span>
+              <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 shadow"><i class="fa-solid fa-cart-plus"></i> add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- product 3 -->
+        <div class="ambient-card p-5 rounded-3xl flex flex-col">
+          <div class="relative flex justify-center items-center bg-[#fae2ce] rounded-2xl py-6">
+            <i class="fa-solid fa-cake-candles text-7xl text-amber-700/70"></i>
+            <span class="absolute top-3 right-3 bg-white/80 text-amber-600 text-xs px-2 py-1 rounded-full flex items-center gap-1"><i class="fa-regular fa-heart"></i> gluten‑free</span>
+          </div>
+          <div class="mt-4 flex-1">
+            <div class="flex items-center gap-2 text-amber-500 text-sm"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star-half-stroke"></i> (13)</div>
+            <h3 class="font-serif text-xl">honey almond cake</h3>
+            <p class="text-stone-500 text-sm mt-1">gluten‑free · almond flour</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-2xl font-light">$4.5</span>
+              <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 shadow"><i class="fa-solid fa-cart-plus"></i> add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ambient banner / promo with icon animation ===== -->
+    <section class="mt-16 ambient-card p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+      <!-- decorative floating icons in background -->
+      <i class="fa-solid fa-wheat-awn absolute text-8xl text-amber-100 -bottom-4 -left-4 rotate-12"></i>
+      <i class="fa-solid fa-candy-cane absolute text-7xl text-amber-100 top-2 right-10 rotate-45"></i>
+      <div class="flex items-center gap-4 z-10">
+        <i class="fa-solid fa-truck-fast text-5xl text-amber-600 animate-pulse"></i>
+        <div>
+          <h3 class="text-2xl font-serif">free delivery on orders over $35</h3>
+          <p class="text-stone-600">mornings are sweeter with brioche. use code <span class="bg-amber-200 px-3 py-1 rounded-full text-amber-800 font-mono">BAKE10</span></p>
+        </div>
+      </div>
+      <button class="bg-white/80 hover:bg-white text-amber-700 px-8 py-3 rounded-full shadow-md border border-amber-200 transition flex items-center gap-2 whitespace-nowrap"><i class="fa-regular fa-moon"></i> ambient offer</button>
+    </section>
+
+    <!-- ===== footer with icons & subtle gradient ===== -->
+    <footer class="mt-16 pt-8 border-t border-amber-200/50 footer-gradient -mx-4 px-4 rounded-t-3xl">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-8">
+        <div>
+          <div class="flex items-center gap-2 text-2xl font-serif"><i class="fa-solid fa-cake-candles text-amber-500"></i> brioche</div>
+          <p class="text-stone-500 text-sm mt-3 leading-relaxed">baking with soul and natural ingredients since 1987. every bite carries warmth.</p>
+          <div class="flex gap-4 mt-5 text-amber-600 text-xl">
+            <i class="fa-brands fa-instagram icon-hover cursor-pointer"></i>
+            <i class="fa-brands fa-pinterest icon-hover cursor-pointer"></i>
+            <i class="fa-brands fa-facebook icon-hover cursor-pointer"></i>
+            <i class="fa-brands fa-x-twitter icon-hover cursor-pointer"></i>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold flex items-center gap-2"><i class="fa-regular fa-compass"></i> explore</h4>
+          <ul class="mt-4 space-y-2 text-stone-600">
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> all products</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> weekly specials</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> gift boxes</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> wholesale</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold flex items-center gap-2"><i class="fa-regular fa-message"></i> help</h4>
+          <ul class="mt-4 space-y-2 text-stone-600">
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> contact us</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> delivery info</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> allergy advice</a></li>
+            <li><a href="#" class="hover:text-amber-600 flex items-center gap-2"><i class="fa-regular fa-circle-right text-xs"></i> returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold flex items-center gap-2"><i class="fa-regular fa-clock"></i> opening hours</h4>
+          <ul class="mt-4 space-y-2 text-stone-600">
+            <li class="flex justify-between"><span>mon-fri</span> <span>7am – 7pm</span></li>
+            <li class="flex justify-between"><span>saturday</span> <span>8am – 6pm</span></li>
+            <li class="flex justify-between"><span>sunday</span> <span>8am – 2pm</span></li>
+          </ul>
+          <p class="mt-4 text-sm bg-amber-100 p-2 rounded-full text-center"><i class="fa-regular fa-bell"></i> bake-off at 10am daily</p>
+        </div>
+      </div>
+      <div class="border-t border-amber-200/50 py-6 text-sm text-stone-500 flex flex-wrap justify-between">
+        <span>© 2025 brioche bakery – handmade with ❤ and flour</span>
+        <span class="flex gap-4"><i class="fa-regular fa-credit-card"></i> <i class="fa-brands fa-cc-visa"></i> <i class="fa-brands fa-cc-mastercard"></i> <i class="fa-brands fa-apple-pay"></i></span>
+      </div>
+    </footer>
+  </div>
+  <!-- one final floating icon for joy -->
+  <div class="fixed bottom-6 right-6 bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-white/50 backdrop-blur-sm text-amber-600 animate-bounce">
+    <i class="fa-regular fa-comment-dots text-2xl"></i>
+  </div>
+</body>
+</html>
