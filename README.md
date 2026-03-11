@@ -192,14 +192,13 @@ Possible enhancements include:
 - Advanced sales analytics
 - Customer notification system
 - Multi-branch bakery support
+- AI Chatbot Intergration 
 
 ---
 
 ## 👨‍💻 Author
 
-**Berita Wangui Wambui**  
-Diploma in Information Technology  
-African Institute of Research and Development Studies
+**Flevian Ochoka**  
 
 Project: **BeriBakes Bakery Management System**
 
@@ -207,4 +206,4 @@ Project: **BeriBakes Bakery Management System**
 
 ## 📜 License
 
-This project is developed for **educational purposes** as part of a diploma project.
+This project is developed for **educational purposes** as part of a project.
